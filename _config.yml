@@ -1,0 +1,6 @@
+title: Taumatix
+description: Small, well-tested libraries for Go and Swift, and notes on building them.
+theme: minima
+url: https://taumatix.github.io
+github_username: taumatix
+show_excerpts: true
