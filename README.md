@@ -1,7 +1,9 @@
 # taumatix.github.io
 
 Source of [taumatix.dev](https://taumatix.dev): the project index (libraries and tools), upstream pins and engineering notes.
-Plain HTML and CSS served by GitHub Pages from `main`, with no build step.
+Plain HTML and CSS with no build step. A push to `main` runs the checks, then the `deploy` job in
+`.github/workflows/check.yml` publishes `index.html`, `404.html`, `CNAME`, `assets/` and `notes/` through
+GitHub Pages (source: GitHub Actions). `tools/` is never served.
 
 - `index.html`, `notes/`: pages. Each carries its own header and footer.
 - `assets/`: stylesheet, theme and version-badge script, favicon, `og.png`.
