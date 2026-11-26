@@ -27,7 +27,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.first.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - name: Stage the files that are served
@@ -39,5 +39,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      - id: first
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Retry once, the artifact is sometimes not visible straight after upload
+        id: second
+        if: steps.first.outcome == 'failure'
+        run: sleep 30
       - id: deployment
+        if: steps.first.outcome == 'failure'
         uses: actions/deploy-pages@v4
