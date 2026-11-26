@@ -45,6 +45,10 @@ for name in public_repos():
     if name not in NOT_PROJECTS and f"github.com/taumatix/{name}" not in landing:
         errors.append(f"index.html: public repo {name!r} is not on the landing page")
 
+for card in re.findall(r'<article class="card" data-repo="([^"]+)">(.*?)</article>', landing, re.S):
+    if 'class="status status-' not in card[1]:
+        errors.append(f"index.html: card {card[0]!r} has no status line")
+
 cname = (ROOT / "CNAME").read_text().strip()
 if cname != "taumatix.dev":
     errors.append(f"CNAME is {cname!r}, want 'taumatix.dev'")

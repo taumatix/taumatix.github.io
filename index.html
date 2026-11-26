@@ -70,7 +70,12 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Projects</h2>
-      <p>Some are libraries you import. Some are tools you run. Pick one, install it, read the pin. Versions below load from the latest GitHub release.</p>
+      <p>Some are libraries you import. Some are tools you run. Not all of them are ready for production use: each card says where it stands and why. Versions load from the latest GitHub release.</p>
+    </div>
+    <div class="cols legend">
+      <div class="col"><h3><span class="pill status-stable">Stable</span></h3><p>Version 1.0 or later. Public API changes are additive; a break means a major version and a MIGRATION.md.</p></div>
+      <div class="col"><h3><span class="pill status-beta">Beta</span></h3><p>Pre-1.0 and tested end to end, but the API can still change in a minor release. Pin the version.</p></div>
+      <div class="col"><h3><span class="pill status-experimental">Experimental</span></h3><p>A first release, or an edge that no automated test has exercised against the real thing. Try it, do not depend on it.</p></div>
     </div>
 
     <h3 class="sub-head" id="libraries">Libraries</h3>
@@ -80,6 +85,7 @@
         <div class="card-top"><h3><a href="https://github.com/taumatix/claude-agent-sdk-go">claude-agent-sdk-go</a></h3><span class="version" data-version>v0.12.0</span></div>
         <p>Unofficial Go SDK for the Claude Agent API, ported from the official Python Agent SDK.</p>
         <div class="tags"><span class="tag kind lib">Library</span><span class="tag">Go</span><span class="tag plain">Apache-2.0</span></div>
+        <div class="status status-beta"><b>Beta.</b> Pre-1.0: the API is still settling. Incompatible changes bump the minor version and are in the changelog.</div>
         <div class="cmd mono">go get github.com/taumatix/claude-agent-sdk-go</div>
         <div class="card-links"><a href="https://pkg.go.dev/github.com/taumatix/claude-agent-sdk-go">Docs</a><a href="https://github.com/taumatix/claude-agent-sdk-go/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
@@ -87,6 +93,7 @@
         <div class="card-top"><h3><a href="https://github.com/taumatix/anthropic-swift">anthropic-swift</a></h3><span class="version" data-version>v0.12.0</span></div>
         <p>Swift client for the Anthropic Claude API: messages, streaming, tool use, files and skills.</p>
         <div class="tags"><span class="tag kind lib">Library</span><span class="tag">Swift</span><span class="tag plain">Apache-2.0</span></div>
+        <div class="status status-beta"><b>Beta.</b> Pre-1.0: the API may change in a minor release.</div>
         <div class="cmd mono">.package(url: "https://github.com/taumatix/anthropic-swift", from: "0.12.0")</div>
         <div class="card-links"><a href="https://github.com/taumatix/anthropic-swift#readme">Readme</a><a href="https://github.com/taumatix/anthropic-swift/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
@@ -94,6 +101,7 @@
         <div class="card-top"><h3><a href="https://github.com/taumatix/iterm2-go">iterm2-go</a></h3><span class="version" data-version>v0.9.0</span></div>
         <p>Go client for the iTerm2 API: control windows, tabs and sessions, and subscribe to notifications.</p>
         <div class="tags"><span class="tag kind lib">Library</span><span class="tag">Go</span><span class="tag plain">GPL-2.0-or-later</span></div>
+        <div class="status status-experimental"><b>Experimental.</b> No automated test has talked to a real iTerm2; the tests drive a fake.</div>
         <div class="cmd mono">go get github.com/taumatix/iterm2-go</div>
         <div class="card-links"><a href="https://pkg.go.dev/github.com/taumatix/iterm2-go">Docs</a><a href="https://github.com/taumatix/iterm2-go/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
@@ -107,6 +115,7 @@
         <div class="card-top"><h3><a href="https://github.com/taumatix/natsmqtt5">natsmqtt5</a></h3><span class="version" data-version>v1.2.2</span></div>
         <p>An MQTT v5 broker that uses the NATS server you already run as its messaging core. Run it as a server; the Go packages are there if you want to embed it.</p>
         <div class="tags"><span class="tag kind">Server</span><span class="tag">Go</span><span class="tag plain">Apache-2.0</span><span class="tag plain">MQTT 5.0</span></div>
+        <div class="status status-stable"><b>Stable.</b> 1.x. MQTT 5 conformance gaps are known and ordered in its ROADMAP.</div>
         <div class="cmd mono">go install github.com/taumatix/natsmqtt5/cmd/natsmqtt5@latest</div>
         <div class="card-links"><a href="https://github.com/taumatix/natsmqtt5#readme">Readme</a><a href="https://github.com/taumatix/natsmqtt5/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
@@ -114,6 +123,7 @@
         <div class="card-top"><h3><a href="https://github.com/taumatix/ripple">ripple</a></h3><span class="version" data-version>v0.4.0</span></div>
         <p>Event-driven dependency updates: discover a new version once, update every importing repo directly. A command-line tool, not a library to import.</p>
         <div class="tags"><span class="tag kind">CLI</span><span class="tag">Go</span><span class="tag plain">Apache-2.0</span></div>
+        <div class="status status-beta"><b>Beta.</b> Pre-1.0: the command-line interface may change in a minor release.</div>
         <div class="cmd mono">go install github.com/taumatix/ripple/cmd/ripple@latest</div>
         <div class="card-links"><a href="https://github.com/taumatix/ripple#readme">Readme</a><a href="https://github.com/taumatix/ripple/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
@@ -121,6 +131,7 @@
         <div class="card-top"><h3><a href="https://github.com/taumatix/claude-mods-go">claude-mods-go</a></h3><span class="version" data-version>v0.1.0</span></div>
         <p>Write Claude Code mods in Go. The modgo tool packages a Go program as a mods plugin; the runtime library is what the program imports.</p>
         <div class="tags"><span class="tag kind">CLI + library</span><span class="tag">Go</span><span class="tag plain">Apache-2.0</span></div>
+        <div class="status status-experimental"><b>Experimental.</b> First release, v0.1.0. Expect rough edges.</div>
         <div class="cmd mono">go install github.com/taumatix/claude-mods-go/cmd/modgo@latest</div>
         <div class="card-links"><a href="https://github.com/taumatix/claude-mods-go#readme">Readme</a><a href="https://github.com/taumatix/claude-mods-go/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
@@ -128,6 +139,7 @@
         <div class="card-top"><h3><a href="https://github.com/taumatix/iterm2-claude-bridge">iterm2-claude-bridge</a></h3><span class="version" data-version>v0.6.1</span></div>
         <p>Show Claude Code sessions on remote hosts in iTerm2 and open a tab that attaches to their tmux session.</p>
         <div class="tags"><span class="tag kind">CLI</span><span class="tag">Go</span><span class="tag plain">GPL-2.0-or-later</span></div>
+        <div class="status status-experimental"><b>Experimental.</b> No automated test reaches a real iTerm2 or SSH server.</div>
         <div class="cmd mono">go install github.com/taumatix/iterm2-claude-bridge/cmd/iterm2-claude-bridge@latest</div>
         <div class="card-links"><a href="https://github.com/taumatix/iterm2-claude-bridge#readme">Readme</a><a href="https://github.com/taumatix/iterm2-claude-bridge/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
