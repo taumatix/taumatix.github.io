@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A green test suite does not tell you the port is current | Taumatix</title>
+  <meta name="description" content="claude-agent-sdk-go passed its tests for six months while the Python SDK it ports moved hundreds of commits ahead. Why every Taumatix library now has an UPSTREAM.md.">
+  <link rel="canonical" href="https://taumatix.dev/notes/upstream-pins/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#4f46e5"/><path d="M9 10h14M16 10v13" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="23" cy="23" r="2.4" fill="#5eead4"/></svg>
+      Taumatix
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/#libraries">Libraries</a>
+      <a href="/#trust">How we build</a>
+      <a href="/#pins">Upstream pins</a>
+      <a href="/notes/">Notes</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn" href="https://github.com/taumatix">GitHub</a>
+      <button class="btn icon-btn" id="theme" type="button" aria-label="Toggle colour theme">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a7 7 0 1 0 0 14V1z"/><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+<article class="article">
+  <a href="/notes/">&larr; Notes</a>
+  <h1>A green test suite does not tell you the port is current</h1>
+  <p class="meta"><time datetime="2026-11-26">26 Nov 2026</time></p>
+
+  <p>claude-agent-sdk-go is a Go port of the official Python Agent SDK. For six months its tests were green on every commit. During those months the Python SDK moved 446 commits ahead, and nothing in the repository said so.</p>
+
+  <h2>What we believed</h2>
+  <p>The port's tests passed, so the port was in good shape. The tests exercise the Go code against the CLI, and they did that correctly. They have no way to notice that upstream grew an API the port does not have.</p>
+
+  <h2>What we saw</h2>
+  <p>The reference commit lived in a dotfile, <code>.claude-agent-sdk-python-sha</code>. No reader opened it and no scheduled job compared it with upstream. anthropic-swift pinned nothing at all. Its beta headers, <code>skills-2025-10-02</code> and <code>files-api-2025-04-14</code>, could have expired and the first signal would have been a user's bug report.</p>
+
+  <h2>What changed</h2>
+  <p>Every library bound to something outside itself now has a root <code>UPSTREAM.md</code>, linked from its README. It holds one pinned reference per dependency, with the date it was last checked, in a fenced <code>yaml</code> block that a script parses:</p>
+<pre><code>- name: claude-agent-sdk-python
+  kind: github-commit
+  repo: anthropics/claude-agent-sdk-python
+  sha: 566e41f7a59377885693082d0e8436d8964a0491
+  checked: 2026-11-26</code></pre>
+  <ul>
+    <li><strong>A job can check it.</strong> The block is the single source of truth and nothing else holds a second copy.</li>
+    <li><strong>A user can check it.</strong> If a port is months behind, you can see that and decide whether to depend on it.</li>
+    <li><strong>The date is refreshed even when nothing drifted.</strong> An unrefreshed date looks the same as an unchecked one.</li>
+    <li><strong>Drift becomes a roadmap entry.</strong> Catching up in one piece nobody dares start is how the gap got to 446 commits. New upstream surface is shipped one piece at a time instead.</li>
+  </ul>
+
+  <h2>Where it stands</h2>
+  <p>The gap has not closed. As of 26 Nov 2026 claude-agent-sdk-go is 576 commits behind its pinned upstream, and its <a href="https://github.com/taumatix/claude-agent-sdk-go/blob/main/UPSTREAM.md">UPSTREAM.md</a> says which areas have been brought level and when. The difference is that the number is now written down where you can read it.</p>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>&copy; 2026 Taumatix. Libraries are Apache-2.0 unless a repository says otherwise.</div>
+    <nav aria-label="Footer"><a href="https://github.com/taumatix">GitHub</a><a href="https://github.com/taumatix/taumatix.github.io">Source of this site</a><a href="/">Home</a></nav>
+  </div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>

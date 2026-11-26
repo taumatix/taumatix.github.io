@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>og</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; background: #0d1117; color: #e6edf3; font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; position: relative; overflow: hidden; }
+  .glow { position: absolute; inset: 0; background: radial-gradient(ellipse 55% 70% at 10% 0%, rgba(129,140,248,.35), transparent 70%), radial-gradient(ellipse 45% 60% at 95% 100%, rgba(45,212,191,.25), transparent 70%); }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(#3d444d 1px, transparent 1px), linear-gradient(90deg, #3d444d 1px, transparent 1px); background-size: 60px 60px; opacity: .25; }
+  .inner { position: relative; padding: 72px 80px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 16px; font-size: 34px; font-weight: 650; }
+  .brand svg { width: 52px; height: 52px; }
+  h1 { font-size: 84px; line-height: 1.02; letter-spacing: -0.04em; max-width: 960px; }
+  h1 span { background: linear-gradient(100deg, #818cf8, #2dd4bf); -webkit-background-clip: text; color: transparent; }
+  .foot { display: flex; justify-content: space-between; color: #9198a1; font-size: 26px; }
+</style>
+</head>
+<body>
+<div class="glow"></div><div class="grid"></div>
+<div class="inner">
+  <div class="brand"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#4f46e5"/><path d="M9 10h14M16 10v13" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="23" cy="23" r="2.4" fill="#5eead4"/></svg>Taumatix</div>
+  <h1>Libraries you can <span>depend on</span>, and check.</h1>
+  <div class="foot"><div>Go and Swift &middot; tested end to end &middot; upstream pins in the open</div><div>taumatix.dev</div></div>
+</div>
+</body>
+</html>
