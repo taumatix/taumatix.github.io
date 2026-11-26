@@ -17,3 +17,9 @@ The project list is written by hand, so adding or releasing a library or tool me
 version badges refresh from the GitHub API in the browser and fall back to the baked-in value.
 
 Licensed under Apache-2.0.
+
+## Keeping it current
+
+- A new public project must be added to `index.html`. `tools/check_site.py` lists the org's public
+  repositories and fails if one is not linked, on every PR and in a weekly run.
+- Difficulties and findings from building the projects become a post under `notes/`.
