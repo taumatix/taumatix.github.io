@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Taumatix: small, well-tested libraries for Go and Swift</title>
-  <meta name="description" content="Open-source libraries for Go and Swift. Each one is Apache-2.0 or GPL, tested end to end, and declares the upstream version it was built against.">
+  <title>Taumatix: libraries and tools, tested end to end</title>
+  <meta name="description" content="Open-source libraries and command-line tools for Go and Swift. Each is tested end to end and declares the upstream version it was built against.">
   <link rel="canonical" href="https://taumatix.dev/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <meta property="og:title" content="Taumatix">
-  <meta property="og:description" content="Small, well-tested libraries for Go and Swift, with their upstream pins in the open.">
+  <meta property="og:description" content="Libraries and tools for Go and Swift, tested end to end, with their upstream pins in the open.">
   <meta property="og:image" content="https://taumatix.dev/assets/og.png">
   <meta property="og:url" content="https://taumatix.dev/">
   <meta name="twitter:card" content="summary_large_image">
@@ -18,11 +19,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#4f46e5"/><path d="M9 10h14M16 10v13" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="23" cy="23" r="2.4" fill="#5eead4"/></svg>
+      <img src="/assets/logo.png" width="32" height="32" alt="">
       Taumatix
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="/#libraries">Libraries</a>
+      <a href="/#projects">Projects</a>
       <a href="/#trust">How we build</a>
       <a href="/#pins">Upstream pins</a>
       <a href="/notes/">Notes</a>
@@ -42,96 +43,100 @@
 <main>
 <div class="hero">
   <div class="wrap">
-    <span class="eyebrow"><span class="dot"></span> 7 libraries, all released and installable</span>
-    <h1>Libraries you can <span class="grad">depend on</span>, and check.</h1>
-    <p class="lede">Go and Swift libraries that are tested against the real thing: a real broker, a real CLI, a real API. Each declares the upstream version it was built against, so you can see when it falls behind.</p>
+    <div class="hero-copy">
+    <span class="eyebrow"><span class="dot"></span> 3 libraries and 4 tools, all released and installable</span>
+    <h1>Libraries and tools you can <span class="grad">rely on</span>, and check.</h1>
+    <p class="lede">Go and Swift libraries to import and tools to run, tested against the real thing: a real broker, a real CLI, a real API. Each declares the upstream version it was built against, so you can see when it falls behind.</p>
     <div class="hero-actions">
-      <a class="btn primary" href="#libraries">Browse libraries</a>
+      <a class="btn primary" href="#projects">Browse projects</a>
       <a class="btn" href="#pins">See the upstream pins</a>
     </div>
-    <div class="install-chip mono"><span class="prompt">$</span> go get github.com/taumatix/claude-agent-sdk-go</div>
+    <div class="install-chip mono"><span class="prompt">$</span> go install github.com/taumatix/natsmqtt5/cmd/natsmqtt5@latest</div>
+    </div>
+    <img class="hero-logo" src="/assets/logo.png" width="360" height="360" alt="Taumatix logo: a robot at the centre of a circuit, with language logos around it">
   </div>
 </div>
 
 <div class="stats">
   <div class="stats-inner">
-    <div class="stat"><b>7</b><span>public libraries</span></div>
+    <div class="stat"><b>3 + 4</b><span>libraries and tools</span></div>
     <div class="stat"><b>6 + 1</b><span>Go and Swift</span></div>
     <div class="stat"><b>7 / 7</b><span>declare an UPSTREAM.md</span></div>
     <div class="stat"><b>5 / 7</b><span>Apache-2.0 licensed</span></div>
   </div>
 </div>
 
-<section id="libraries">
+<section id="projects">
   <div class="wrap">
     <div class="section-head">
-      <h2>Libraries</h2>
-      <p>Pick one, install it, read the pin. Versions below load from the latest GitHub release.</p>
+      <h2>Projects</h2>
+      <p>Some are libraries you import. Some are tools you run. Pick one, install it, read the pin. Versions below load from the latest GitHub release.</p>
     </div>
-    <div class="grid">
 
+    <h3 class="sub-head" id="libraries">Libraries</h3>
+    <p class="sub-lede">Packages to import into your own code.</p>
+    <div class="grid">
       <article class="card" data-repo="claude-agent-sdk-go">
         <div class="card-top"><h3><a href="https://github.com/taumatix/claude-agent-sdk-go">claude-agent-sdk-go</a></h3><span class="version" data-version>v0.12.0</span></div>
         <p>Unofficial Go SDK for the Claude Agent API, ported from the official Python Agent SDK.</p>
-        <div class="tags"><span class="tag">Go</span><span class="tag plain">Apache-2.0</span></div>
+        <div class="tags"><span class="tag kind lib">Library</span><span class="tag">Go</span><span class="tag plain">Apache-2.0</span></div>
         <div class="cmd mono">go get github.com/taumatix/claude-agent-sdk-go</div>
         <div class="card-links"><a href="https://pkg.go.dev/github.com/taumatix/claude-agent-sdk-go">Docs</a><a href="https://github.com/taumatix/claude-agent-sdk-go/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
-
-      <article class="card" data-repo="natsmqtt5">
-        <div class="card-top"><h3><a href="https://github.com/taumatix/natsmqtt5">natsmqtt5</a></h3><span class="version" data-version>v1.2.2</span></div>
-        <p>An MQTT v5 broker that uses the NATS server you already run as its messaging core.</p>
-        <div class="tags"><span class="tag">Go</span><span class="tag plain">Apache-2.0</span><span class="tag plain">MQTT 5.0</span></div>
-        <div class="cmd mono">go install github.com/taumatix/natsmqtt5/cmd/natsmqtt5@latest</div>
-        <div class="card-links"><a href="https://pkg.go.dev/github.com/taumatix/natsmqtt5">Docs</a><a href="https://github.com/taumatix/natsmqtt5/blob/main/UPSTREAM.md">Upstream pin</a></div>
-      </article>
-
-      <article class="card" data-repo="ripple">
-        <div class="card-top"><h3><a href="https://github.com/taumatix/ripple">ripple</a></h3><span class="version" data-version>v0.4.0</span></div>
-        <p>Event-driven dependency updates: discover a new version once, update every importing repo directly.</p>
-        <div class="tags"><span class="tag">Go</span><span class="tag plain">Apache-2.0</span><span class="tag plain">CLI</span></div>
-        <div class="cmd mono">go install github.com/taumatix/ripple/cmd/ripple@latest</div>
-        <div class="card-links"><a href="https://pkg.go.dev/github.com/taumatix/ripple">Docs</a><a href="https://github.com/taumatix/ripple/blob/main/UPSTREAM.md">Upstream pin</a></div>
-      </article>
-
-      <article class="card" data-repo="claude-mods-go">
-        <div class="card-top"><h3><a href="https://github.com/taumatix/claude-mods-go">claude-mods-go</a></h3><span class="version" data-version>v0.1.0</span></div>
-        <p>Write Claude Code mods in Go: a runtime library and the modgo tool that packages a Go program as a mods plugin.</p>
-        <div class="tags"><span class="tag">Go</span><span class="tag plain">Apache-2.0</span></div>
-        <div class="cmd mono">go install github.com/taumatix/claude-mods-go/cmd/modgo@latest</div>
-        <div class="card-links"><a href="https://pkg.go.dev/github.com/taumatix/claude-mods-go">Docs</a><a href="https://github.com/taumatix/claude-mods-go/blob/main/UPSTREAM.md">Upstream pin</a></div>
-      </article>
-
       <article class="card" data-repo="anthropic-swift">
         <div class="card-top"><h3><a href="https://github.com/taumatix/anthropic-swift">anthropic-swift</a></h3><span class="version" data-version>v0.12.0</span></div>
         <p>Swift client for the Anthropic Claude API: messages, streaming, tool use, files and skills.</p>
-        <div class="tags"><span class="tag">Swift</span><span class="tag plain">Apache-2.0</span></div>
+        <div class="tags"><span class="tag kind lib">Library</span><span class="tag">Swift</span><span class="tag plain">Apache-2.0</span></div>
         <div class="cmd mono">.package(url: "https://github.com/taumatix/anthropic-swift", from: "0.12.0")</div>
         <div class="card-links"><a href="https://github.com/taumatix/anthropic-swift#readme">Readme</a><a href="https://github.com/taumatix/anthropic-swift/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
-
       <article class="card" data-repo="iterm2-go">
         <div class="card-top"><h3><a href="https://github.com/taumatix/iterm2-go">iterm2-go</a></h3><span class="version" data-version>v0.9.0</span></div>
         <p>Go client for the iTerm2 API: control windows, tabs and sessions, and subscribe to notifications.</p>
-        <div class="tags"><span class="tag">Go</span><span class="tag plain">GPL-2.0-or-later</span></div>
+        <div class="tags"><span class="tag kind lib">Library</span><span class="tag">Go</span><span class="tag plain">GPL-2.0-or-later</span></div>
         <div class="cmd mono">go get github.com/taumatix/iterm2-go</div>
         <div class="card-links"><a href="https://pkg.go.dev/github.com/taumatix/iterm2-go">Docs</a><a href="https://github.com/taumatix/iterm2-go/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
 
+    </div>
+
+    <h3 class="sub-head spaced" id="tools">Tools and servers</h3>
+    <p class="sub-lede">Programs to install and run. They are not meant to be imported, and their Go packages carry no stability promise unless the repository says so.</p>
+    <div class="grid">
+      <article class="card" data-repo="natsmqtt5">
+        <div class="card-top"><h3><a href="https://github.com/taumatix/natsmqtt5">natsmqtt5</a></h3><span class="version" data-version>v1.2.2</span></div>
+        <p>An MQTT v5 broker that uses the NATS server you already run as its messaging core. Run it as a server; the Go packages are there if you want to embed it.</p>
+        <div class="tags"><span class="tag kind">Server</span><span class="tag">Go</span><span class="tag plain">Apache-2.0</span><span class="tag plain">MQTT 5.0</span></div>
+        <div class="cmd mono">go install github.com/taumatix/natsmqtt5/cmd/natsmqtt5@latest</div>
+        <div class="card-links"><a href="https://github.com/taumatix/natsmqtt5#readme">Readme</a><a href="https://github.com/taumatix/natsmqtt5/blob/main/UPSTREAM.md">Upstream pin</a></div>
+      </article>
+      <article class="card" data-repo="ripple">
+        <div class="card-top"><h3><a href="https://github.com/taumatix/ripple">ripple</a></h3><span class="version" data-version>v0.4.0</span></div>
+        <p>Event-driven dependency updates: discover a new version once, update every importing repo directly. A command-line tool, not a library to import.</p>
+        <div class="tags"><span class="tag kind">CLI</span><span class="tag">Go</span><span class="tag plain">Apache-2.0</span></div>
+        <div class="cmd mono">go install github.com/taumatix/ripple/cmd/ripple@latest</div>
+        <div class="card-links"><a href="https://github.com/taumatix/ripple#readme">Readme</a><a href="https://github.com/taumatix/ripple/blob/main/UPSTREAM.md">Upstream pin</a></div>
+      </article>
+      <article class="card" data-repo="claude-mods-go">
+        <div class="card-top"><h3><a href="https://github.com/taumatix/claude-mods-go">claude-mods-go</a></h3><span class="version" data-version>v0.1.0</span></div>
+        <p>Write Claude Code mods in Go. The modgo tool packages a Go program as a mods plugin; the runtime library is what the program imports.</p>
+        <div class="tags"><span class="tag kind">CLI + library</span><span class="tag">Go</span><span class="tag plain">Apache-2.0</span></div>
+        <div class="cmd mono">go install github.com/taumatix/claude-mods-go/cmd/modgo@latest</div>
+        <div class="card-links"><a href="https://github.com/taumatix/claude-mods-go#readme">Readme</a><a href="https://github.com/taumatix/claude-mods-go/blob/main/UPSTREAM.md">Upstream pin</a></div>
+      </article>
       <article class="card" data-repo="iterm2-claude-bridge">
         <div class="card-top"><h3><a href="https://github.com/taumatix/iterm2-claude-bridge">iterm2-claude-bridge</a></h3><span class="version" data-version>v0.6.1</span></div>
         <p>Show Claude Code sessions on remote hosts in iTerm2 and open a tab that attaches to their tmux session.</p>
-        <div class="tags"><span class="tag">Go</span><span class="tag plain">GPL-2.0-or-later</span><span class="tag plain">CLI</span></div>
+        <div class="tags"><span class="tag kind">CLI</span><span class="tag">Go</span><span class="tag plain">GPL-2.0-or-later</span></div>
         <div class="cmd mono">go install github.com/taumatix/iterm2-claude-bridge/cmd/iterm2-claude-bridge@latest</div>
         <div class="card-links"><a href="https://github.com/taumatix/iterm2-claude-bridge#readme">Readme</a><a href="https://github.com/taumatix/iterm2-claude-bridge/blob/main/UPSTREAM.md">Upstream pin</a></div>
       </article>
 
       <article class="card cta">
         <h3>Found a bug or a gap?</h3>
-        <p>Open an issue on the library's repository. Each one has a ROADMAP.md showing what is planned next.</p>
+        <p>Open an issue on the project's repository. Each one has a ROADMAP.md showing what is planned next.</p>
         <div class="card-links"><a href="https://github.com/taumatix">All repositories on GitHub</a></div>
       </article>
-
     </div>
   </div>
 </section>
@@ -139,7 +144,7 @@
 <section id="trust" class="alt">
   <div class="wrap">
     <div class="section-head">
-      <h2>How these libraries are built</h2>
+      <h2>How these projects are built</h2>
       <p>Most of the day-to-day work is done by an AI agent. A human owns the repositories and sets the direction. Three habits make that checkable.</p>
     </div>
     <div class="cols">
@@ -154,7 +159,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Upstream pins</h2>
-      <p>A library that wraps something else says what it was built against. Each repository has an <code>UPSTREAM.md</code> with the pinned reference and the date it was last checked. A passing test suite does not tell you the pin has aged.</p>
+      <p>A project that wraps something else says what it was built against. Each repository has an <code>UPSTREAM.md</code> with the pinned reference and the date it was last checked. A passing test suite does not tell you the pin has aged.</p>
     </div>
     <div class="table-wrap">
       <table>
@@ -191,7 +196,7 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <div>&copy; 2026 Taumatix. Libraries are Apache-2.0 unless a repository says otherwise.</div>
+    <div>&copy; 2026 Taumatix. Projects are Apache-2.0 unless a repository says otherwise.</div>
     <nav aria-label="Footer">
       <a href="https://github.com/taumatix">GitHub</a>
       <a href="https://github.com/taumatix/taumatix.github.io">Source of this site</a>
