@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Checks the site before it ships: local links resolve, and nothing private is named."""
+"""Checks the site before it ships: local links resolve, nothing private is named, every public project is listed."""
+import json
 import pathlib
 import re
 import sys
+import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PRIVATE = ["agent-host", "agent-security-range", "taumatix/dev", "chat-archive", "chat-history"]
@@ -27,6 +29,21 @@ for page in PAGES:
     for tag in ("<title>", 'name="viewport"', 'rel="icon"'):
         if tag not in text:
             errors.append(f"{rel}: missing {tag}")
+
+def public_repos():
+    url = "https://api.github.com/orgs/taumatix/repos?per_page=100&type=public"
+    try:
+        with urllib.request.urlopen(url, timeout=15) as resp:
+            return [r["name"] for r in json.load(resp) if not r["archived"] and not r["fork"]]
+    except Exception as exc:
+        print(f"warning: could not list public repos ({exc}); skipping the landing-page coverage check")
+        return []
+
+NOT_PROJECTS = {".github", "taumatix.github.io"}
+landing = (ROOT / "index.html").read_text()
+for name in public_repos():
+    if name not in NOT_PROJECTS and f"github.com/taumatix/{name}" not in landing:
+        errors.append(f"index.html: public repo {name!r} is not on the landing page")
 
 cname = (ROOT / "CNAME").read_text().strip()
 if cname != "taumatix.dev":
