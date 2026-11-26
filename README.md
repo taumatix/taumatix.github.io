@@ -23,3 +23,5 @@ Licensed under Apache-2.0.
 - A new public project must be added to `index.html`. `tools/check_site.py` lists the org's public
   repositories and fails if one is not linked, on every PR and in a weekly run.
 - Difficulties and findings from building the projects become a post under `notes/`.
+
+Every project card carries a status (Stable, Beta or Experimental) with a one-line reason; `tools/check_site.py` fails a card without one. Revisit it when a project reaches 1.0 or an unverified edge gets a real test.
